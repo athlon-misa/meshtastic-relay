@@ -4,8 +4,8 @@
 *.dll
 *.so
 *.dylib
-relayd
-relay-cli
+/relayd
+/relay-cli
 /bin/
 /dist/
 
