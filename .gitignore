@@ -1,0 +1,50 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+relayd
+relay-cli
+/bin/
+/dist/
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+coverage.html
+
+# Dependency directories
+vendor/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build artifacts
+*.o
+*.a
+
+# Environment and config files with secrets
+*.env
+.env.*
+config.local.yaml
+config.local.toml
+
+# BoltDB files
+*.db
+
+# Node identity keys (generated at runtime)
+poc/*.key
+
+# Debug binaries
+__debug_bin*
+
+# Air live reload
+tmp/

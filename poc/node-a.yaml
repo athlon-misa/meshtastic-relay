@@ -1,0 +1,30 @@
+node:
+  identity_path: "poc/node-a.key"
+  name: "node-home"
+  region: "us-west"
+
+mqtt:
+  broker: "tcp://localhost:1883"
+  client_id: "node-a"
+  topic_prefix: "relay"
+  qos: 1
+  keepalive: 30
+
+meshradio:
+  enabled: false
+
+store:
+  db_path: "poc/node-a.db"
+  max_age: 720h
+  max_per_recipient: 100
+  cleanup_interval: 1h
+
+daemon:
+  listen_addr: ":9370"
+  max_sessions: 50
+  heartbeat_interval: 30s
+  session_timeout: 120s
+
+logging:
+  level: "debug"
+  format: "text"

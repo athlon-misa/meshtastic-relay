@@ -1,0 +1,71 @@
+# Meshtastic Relay Configuration
+
+# Node identity configuration
+node:
+  # Path to the node's identity keypair file.
+  # If the file does not exist, a new keypair will be generated.
+  identity_path: "node-identity.key"
+  # Human-readable node name (optional, for display purposes)
+  name: "relay-home-01"
+  # Geographic region for MQTT topic namespacing
+  region: "us-west"
+
+# MQTT transport configuration
+mqtt:
+  # MQTT broker address
+  broker: "tcp://localhost:1883"
+  # Client ID (must be unique per node)
+  client_id: "relay-home-01"
+  # Authentication (optional)
+  username: ""
+  password: ""
+  # TLS settings (optional)
+  tls:
+    enabled: false
+    ca_cert: ""
+    client_cert: ""
+    client_key: ""
+  # Topic prefix for relay messages
+  topic_prefix: "relay"
+  # Quality of Service level (0, 1, or 2)
+  qos: 1
+  # Keep-alive interval in seconds
+  keepalive: 30
+
+# Meshtastic serial transport configuration
+meshradio:
+  # Enable Meshtastic serial transport
+  enabled: true
+  # Serial port for the Meshtastic radio
+  port: "/dev/ttyUSB0"
+  # Baud rate
+  baud_rate: 115200
+
+# Store-and-forward configuration
+store:
+  # Path to the BoltDB database file
+  db_path: "relay-store.db"
+  # Maximum message age before expiry (duration string)
+  max_age: "720h"  # 30 days
+  # Maximum number of stored messages per recipient
+  max_per_recipient: 1000
+  # Cleanup interval
+  cleanup_interval: "1h"
+
+# Node daemon configuration
+daemon:
+  # Address to listen for local connections (WiFi clients)
+  listen_addr: ":9370"
+  # Maximum concurrent user sessions
+  max_sessions: 100
+  # Session heartbeat interval
+  heartbeat_interval: "30s"
+  # Session timeout (no heartbeat)
+  session_timeout: "120s"
+
+# Logging configuration
+logging:
+  # Log level: debug, info, warn, error
+  level: "info"
+  # Log format: text, json
+  format: "text"

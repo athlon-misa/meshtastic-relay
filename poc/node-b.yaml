@@ -1,0 +1,30 @@
+node:
+  identity_path: "poc/node-b.key"
+  name: "node-office"
+  region: "us-west"
+
+mqtt:
+  broker: "tcp://localhost:1883"
+  client_id: "node-b"
+  topic_prefix: "relay"
+  qos: 1
+  keepalive: 30
+
+meshradio:
+  enabled: false
+
+store:
+  db_path: "poc/node-b.db"
+  max_age: 720h
+  max_per_recipient: 100
+  cleanup_interval: 1h
+
+daemon:
+  listen_addr: ":9371"
+  max_sessions: 50
+  heartbeat_interval: 30s
+  session_timeout: 120s
+
+logging:
+  level: "debug"
+  format: "text"
